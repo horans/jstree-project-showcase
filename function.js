@@ -1,0 +1,261 @@
+// JavaScript Document
+$(function() {
+	'use strict';
+	var pData = 'project.json';
+	if($.url('?project')){
+		pData = $.url('?project');
+	}
+
+	var aHover;
+	/********** sidebar **********/
+	//set height and width
+	var bWidth = document.documentElement.clientWidth;
+	var bHeight = document.documentElement.clientHeight;
+	$('iframe').add('.handle').add('.cover').height(bHeight);
+	$('.page-tree').height(bHeight - 210);
+	
+	//shrink/expand sidebar
+	if(bWidth < 1024){
+		$('.container').addClass('mobile');
+		urlChng('mode', 'mobile');
+	} else {
+		if($.url('?mode') === 'shrink'){
+			$('.container').addClass('shrink');
+		} else if($.url('?mode') === 'expand'){
+			$('.container').addClass('expand');
+		} 
+	}
+	
+	$('.handle').click(function(){
+		if(bWidth < 1024){
+			$('.container').toggleClass('open');
+		} else {
+			if($('.container').hasClass('expand')){
+				$('.container').toggleClass('expand');
+				$('.container').toggleClass('shrink');
+				urlChng('mode', 'shrink');
+			} else if($('.container').hasClass('shrink')){
+				$('.container').toggleClass('shrink');
+				urlChng('mode', '');
+			} else {
+				$('.container').toggleClass('expand');
+				urlChng('mode', 'expand');
+			}
+
+			//reload iframe
+			if($( 'iframe' ).attr( 'src') !== 'intro.html'){
+				$('.cover').addClass('show');
+				setTimeout(function(){
+					$('.cover').removeClass('show');
+					$( 'iframe' ).attr( 'src', function ( i, val ) { return val; });
+				}, 600);
+			}
+		}
+	});
+
+	//random help
+	var hText = [
+		'点击页面，右侧切换显示',
+		'悬停页面，显示对应二维码',
+		'点击侧栏右边框，收起或展开侧栏',
+		'输入查找内容，即时高亮显示',
+		'点击搜索框，清除查找内容',
+		'点击 <i class="page-folder-open"></i>，收起文件夹全部页面',
+		'点击 <i class="page-folder-close"></i>，展开文件夹全部页面',
+		'点击 <i class="glyphicon glyphicon-file"></i> 图标，新窗口打开页面',
+		'点击 <i class="glyphicon glyphicon-search"></i> 按钮，过滤查找内容',
+		'点击 <i class="glyphicon glyphicon-zoom-in"></i> 按钮，展开全部页面',
+		'点击 <i class="glyphicon glyphicon-zoom-out"></i> 按钮，收起全部页面',
+		'点击 <i class="glyphicon glyphicon-question-sign"></i> 按钮，随机显示帮助'
+	];
+	var hOld = 0;
+	var showHelp = function(){
+		var hIndex = Math.floor(Math.random() * hText.length);
+		while (hOld === hIndex){
+			hIndex = Math.floor(Math.random() * hText.length);
+		}
+		hOld = hIndex;
+		$('.page-desc').hide().html(hText[hIndex]).fadeIn();
+	};
+	showHelp();
+	$('.page-help').click(function(){
+		showHelp();
+	});
+
+	//show info
+	setTimeout(function(){
+		$.getJSON(pData, function(data){
+			//count page
+			var page = 0;
+			var project = 0;
+			for(var i = 0; i < data.length; i++){
+				if(data[i].type === 'page'){
+					page++;
+				} else if(data[i].type === 'project'){
+					project++;
+				}
+			}
+			$('.page-title').text(data[0].site).removeClass('transparent');
+			$('.page-update span').eq(0).text(project).removeClass('transparent');
+			$('.page-update span').eq(1).text(page).removeClass('transparent');
+		});
+	}, 400);
+
+	/********** tree **********/
+	//build tree
+	$('.page-tree')
+	//change iframe
+	.on('select_node.jstree', function (e, data) {
+		var iLink = data.node.a_attr.href;
+		if(iLink !== '#'){
+			$('#show').attr('src', iLink);
+			if(bWidth < 1024){
+				$('.container').toggleClass('open');
+			}
+		}
+		//toggle folder
+		if(data.node.type === 'folder'){
+			$('.page-tree').jstree(true).toggle_node(data.node);
+		}
+		//show project info
+		if(data.node.type === 'project'){
+			var chkPage = setInterval(function(){
+				if($('#show').contents().find('.title').length > 0){
+					setPage();
+				}
+			}, 300);
+			var setPage = function(){
+				$('#show').contents().find('.title').html(data.node.data.title);
+				$('#show').contents().find('.date').html(data.node.data.date);
+				$('#show').contents().find('.author').html(data.node.data.author);
+				$('#show').contents().find('.description').html(data.node.data.description);
+				for(var i = 0; i < data.node.data.tag.length; i++){
+					$('#show').contents().find('.tag').append('<span class="badge">' + data.node.data.tag[i].term + '</span>');
+				}
+				for(var j = 0; j < data.node.data.feature.length; j++){
+					$('#show').contents().find('.feature').append('<li>' + data.node.data.feature[j].point + '</li>');
+				}
+				$('#show').contents().find('.transition').removeClass('transparent');
+				clearInterval(chkPage);
+			};
+		}
+	})
+	//show qrcode
+	.on('hover_node.jstree', function (e, data){
+		if(bWidth > 1023 && data.node.type === 'page'){
+			aHover = setTimeout(function(){
+				if(data.node.a_attr.href !== '#'){
+					var aElement = $('#' + data.node.id + '_anchor');
+					$('.page-qrcode').fadeIn()
+					.css('top', aElement.offset().top - 220)
+					.css('left', aElement.offset().left)
+					.qrcode({
+						width: 200,
+						height: 200,
+						text: aElement.prop('href')
+					});
+					//tweak for top page
+					if(aElement.offset().top <= 220){
+						$('.page-qrcode').css('top', aElement.offset().top + 24);
+					}
+				}
+			}, 1500);
+		}
+	})
+	//hide qrcode
+	.on('dehover_node.jstree', function (){
+		clearTimeout(aHover);
+		$('.page-qrcode').empty().fadeOut();
+	})
+	//load from json
+	.jstree({
+		'core' : {
+			'data' : {
+				'url' : pData,
+				'data' : function (node) {
+					return { 'id' : node.id };
+				}
+			}
+		},
+		//config
+		'types' : {
+			'project' : {
+			  'icon' : 'glyphicon glyphicon-pushpin',
+			  'valid_children' : ['folder', 'page']
+			},
+			'folder' : {
+			  'icon' : 'glyphicon glyphicon-folder-open',
+			  'valid_children' : ['folder', 'page']
+			},
+			'page' : {
+			  'icon' : 'glyphicon glyphicon-file',
+			  'valid_children' : []
+			}
+		  },		
+		'plugins': [ 'search', 'state', 'wholerow', 'types' ]
+	});
+	
+	//search tree
+	var to = false;
+	$('.page-input').keyup(function () {
+		if(to) { clearTimeout(to); }
+		to = setTimeout(function () {
+			var v = $('.page-input').val();
+			$('.page-tree').jstree(true).search(v);
+		}, 250);
+	});
+	
+	//clear search
+	$('.page-input').click(function(){
+		$('.page-input').val('');
+		$('.page-tree').jstree(true).clear_search();
+	});
+	
+	//filter search
+	$('.page-filter').click(function(){
+		var v = $('.page-input').val();
+		if(v !== ''){
+			$('.page-tree').jstree(true).search(v, true, true);
+		}
+	});
+	
+	//zoom tree
+	$('.page-zoom').click(function(){
+		if($(this).find('i').hasClass('glyphicon-zoom-in')){
+			$('.page-tree').jstree(true).open_all('#', 500);
+		} else {
+			$('.page-tree').jstree(true).close_all('#', 500);
+		}
+		$(this).find('i').toggleClass('glyphicon-zoom-in glyphicon-zoom-out');
+	});
+
+	//new window
+	$('.page-tree').delegate('.glyphicon-file', 'click', function(){
+		var nLink = $(this).parent().attr('href');
+		if(nLink !== '#'){
+			window.open(nLink);
+		}
+	});
+});
+
+//change url
+function urlChng(param, value, push){
+	'use strict';
+	var query = $.url('?');
+	if(value === ''){
+		if(query !== undefined){
+			delete query[param];
+		}
+	} else {
+		if(query === undefined){
+			query = new Object();
+		}
+		query[param] = value;
+	}
+	var url = ($.url('file') || './') + ($.isEmptyObject(query) ? '' : ('?' + $.param(query)));
+	if(push){
+		window.history.pushState(null, null, url);
+	} else {
+		window.history.replaceState(null, null, url);
+	}
+}

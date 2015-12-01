@@ -1,0 +1,327 @@
+@charset "utf-8";
+/* CSS Document
+使用色
+#2B5F7F | 熨斗目花 | NOSHIMEHANA
+#33a6b8 | 浅葱　　 | ASAGI
+#2EA9DF | 露草　　 | TSUYUKUSA
+
+备用色
+#0C4842 | 御納戸　 | ONANDO
+#005CAF | 瑠璃　　 | RURI
+#A5DEE4 | 瓶覗　　 | KAMENOZOKI
+#0B346E | 瑠璃紺　 | RURIKON
+#51A8DD | 群青　　 | GUNJYO */
+
+body {
+	font-family:"Source Han Sans", "Microsoft Yahei", Simhei;
+	font-size:16px;
+	margin:0;
+	padding:0;
+}
+
+.container{
+	width:100%;
+	padding:0;
+}
+
+.sidebar, .handle, .content {
+	display:inline-block;
+	float:left;
+	position:relative;
+	-webkit-transition:all 0.5s ease-in-out;
+	-moz-transition:all 0.5s ease-in-out;
+	-ms-transition:all 0.5s ease-in-out;
+	-o-transition:all 0.5s ease-in-out;
+	transition:all 0.5s ease-in-out;
+}
+
+.sidebar{
+	width:21%;
+	margin-left:2%;
+}
+
+.handle {
+	width:2%;
+	cursor:pointer;
+}
+
+.content {
+	width:75%;
+}
+
+.expand .sidebar {
+	margin-left:0;
+	width:0%;
+	opacity:0;
+}
+
+.expand .content{
+	width:98%;
+}
+
+.shrink .sidebar {
+	width:53%;
+}
+
+.shrink .content{
+	width:43%;
+}
+
+.mobile .sidebar {
+	width:0%;
+	position:absolute;
+	top:0;
+	left:0;
+	margin-left:0;
+	opacity:0;
+	z-index:99;
+	background-color:#fff;
+	overflow:hidden;
+}
+
+.mobile .handle {
+	width:8%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:99;
+	background:#2EA9DF;					/* 露草 | TSUYUKUSA */
+	opacity:0.4;
+}
+
+.mobile .content {
+	width:100%;
+}
+
+.mobile.open .sidebar {
+	opacity:1;
+	padding-left:5%;
+	padding-right:5%;
+	width:92%;
+}
+
+.mobile.open .handle {
+	opacity:1;
+	left:92%;
+}
+
+.expand .handle, .handle:hover {
+	background:#2EA9DF;					/* 露草 | TSUYUKUSA */
+	opacity:0.6;
+}
+
+.cover {
+	position:absolute;
+	width:100%;
+	top:0;
+	left:0;
+	opacity:0;
+	background-color:#fff;
+	-webkit-transition:all 0.5s ease-in-out;
+	-moz-transition:all 0.5s ease-in-out;
+	-ms-transition:all 0.5s ease-in-out;
+	-o-transition:all 0.5s ease-in-out;
+	transition:all 0.5s ease-in-out;
+}
+
+.cover.show { z-index:2; opacity:1; }
+
+.content iframe{
+	position: absolute;
+	top: 0; 
+	left: 0;
+	width: 100%;
+	/*overflow:scroll;*/
+	border:none;
+}
+
+.page-title {
+	margin-top:20px;
+	color:#2B5F7F;						/* 熨斗目花 | NOSHIMEHANA */
+	font-size:22px;
+	text-shadow:1px 1px 3px #33a6b8;	/* 浅葱 | ASAGI */
+	line-height:40px;
+	height:40px;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+.page-desc, .page-update {
+	color:#33a6b8;						/* 浅葱 | ASAGI */
+	font-size:18px;
+	text-align:right;
+	line-height:40px;
+	height:40px;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+.page-tool {
+	margin-bottom:16px;
+}
+
+.page-update{
+	font-size:14px;
+	text-align:center;
+	margin-top:10px;
+	height:50px;
+	padding-bottom:10px;
+}
+
+.page-list{
+	position:relative;
+	min-height:300px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	margin-left:0;
+	margin-bottom:0;
+	-webkit-margin-before:0;
+	-webkit-margin-after:0;
+	-webkit-padding-start:0;
+	-webkit-box-shadow:0 0 2px 1px #2EA9DF;
+	-moz-box-shadow:0 0 2px 1px #2EA9DF;
+	-ms-box-shadow:0 0 2px 1px #2EA9DF;
+	-o-box-shadow:0 0 2px 1px #2EA9DF;
+	box-shadow:0 0 2px 1px #2EA9DF;		/* 露草 | TSUYUKUSA */
+}
+
+.page-qrcode {
+	position:fixed;
+	display:none;
+	z-index:9;
+	top:0;
+	left:0;
+	height:220px;
+	width:220px;
+	padding:10px;
+	background:#fff;
+	border-radius:5px;
+	box-shadow:0 0 3px #33a6b8;
+}
+
+button:focus {
+	outline:none !important;
+	outline-color:transparent !important;
+	border-color:#ccc !important;
+}
+
+.page-tool i{
+	color:#2EA9DF;
+}
+
+.page-folder {
+	color:#777 !important;
+}
+
+.page-empty {
+	color:orange !important;
+}
+
+.page-old {
+	color:green !important;
+}
+
+.page-new {
+	color:#333 !important;
+}
+
+.page-remove {
+	display:none;
+}
+
+.page-project {
+	color:#2B5F7F !important;
+}
+
+.page-primary {
+	font-weight:bold;
+	color:#0B346E !important;					/* 瑠璃紺　| RURIKON */
+}
+
+.page-update span {
+	display:inline-block;
+	width:30px;
+	margin-right:10px;
+}
+
+.page-folder-open {
+	background-position: -36px -4px;
+	width: 24px;
+	height: 24px;
+	background-image: url(included/css/32px.png);
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.page-folder-close {
+	background-position: -4px -4px;
+	width: 24px;
+	height: 24px;
+	background-image: url(included/css/32px.png);
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.transparent {
+	opacity:0;
+}
+.transition {
+	-webkit-transition:all 0.5s ease-in-out;
+	   -moz-transition:all 0.5s ease-in-out;
+	    -ms-transition:all 0.5s ease-in-out;
+	     -o-transition:all 0.5s ease-in-out;
+	        transition:all 0.5s ease-in-out;
+}
+
+.project {
+	margin-top:40px;
+}
+
+.project .title {
+	font-size:20px;
+	line-height:40px;
+}
+
+.project .author, .project .date {
+	font-size:16px;
+	line-height:24px;
+	color:#999;
+	padding-left:5px;
+}
+
+.project .description {
+	text-indent:20px;
+	padding-top:10px;
+}
+
+.project .tag {
+	margin-top:10px;
+	padding-left:20px;
+}
+
+.project .tag span:not(:last-of-type) {
+	margin-right:10px;
+}
+
+.project .feature {
+	padding-top:10px;
+}
+
+.project .feature li:not(:last-of-type) {
+	padding-bottom:10px;
+}
+
+@media (max-width:1023px){
+	.project { margin-top:0; }
+
+	.project .panel {
+		border:none;
+		border-radius:0;
+		margin-bottom:0;
+	}
+
+	.project .panel-heading {
+		border-top-left-radius: 0;
+	    border-top-right-radius: 0;
+	}
+}

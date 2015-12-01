@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" href="included/css/bootstrap.min.css">
+<link rel="stylesheet" href="included/css/jstree.style.min.css">
+<link rel="stylesheet" href="style.css">
+<title>项目预览 | Showcase</title>
+<style>
+</style>
+</head>
+
+<body>
+<div class="title"></div>
+<div class="container">
+	<div class="sidebar">
+        <div class="page-title transition transparent">项目预览 | Showcase</div>
+        <div class="page-desc"></div>
+        <div class="page-tool">
+            <div class="input-group">
+              <!--<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>-->
+              <input type="text" class="form-control page-input" placeholder="查找…">
+              <span class="input-group-btn">
+                <button class="btn btn-default page-filter" type="button" title="过滤"><i class="glyphicon glyphicon-search"></i></button>
+                <!--<button class="btn btn-default page-reset" type="button"><i class="glyphicon glyphicon-erase"></i></button>-->
+                <button class="btn btn-default page-zoom" type="button" title="缩放"><i class="glyphicon glyphicon-zoom-in"></i></button>
+                <button class="btn btn-default page-help" type="button" title="帮助"><i class="glyphicon glyphicon-question-sign"></i></button>
+              </span>
+            </div><!-- /input-group -->        	
+        </div>
+        <div class="page-list">
+	        <div class="page-tree"></div>
+        </div>
+        <div class="page-update">
+        	<i class="glyphicon glyphicon-pushpin page-project"></i> 项目：<span class="transition transparent"></span>
+            <i class="glyphicon glyphicon-file page-new"></i> 页面：<span class="transition transparent"></span><br>
+        </div>
+    </div>
+	<div class="handle"></div>
+    <div class="content">
+    	<div class="cover"></div>
+    	<iframe name="show" id="show" scrolling="yes" frameborder="0"></iframe>
+    </div>
+</div>
+<div class="page-qrcode"></div>
+<script src="included/js/jquery.min.js"></script>
+<script src="included/js/url.min.js"></script>
+<script src="included/js/bootstrap.min.js"></script>
+<script src="included/js/jstree.min.js"></script>
+<script src="included/js/jquery.qrcode.min.js"></script>
+<script src="function.js"></script>
+</body>
+</html>
