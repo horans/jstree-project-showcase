@@ -20,8 +20,8 @@ we will looking for the json in url query string (ie. "project=sample.json"), or
 		},{
 	      "term"      : "JavaScript"
 	    }],
-	    "feature"     : [{                                  //feature list
-	      "point"     : "function base on <a href=\"https:\/\/github.com\/jquery\/jquery\" target=\"_blank\">jQuery<\/a> + <a href=\"https:\/\/github.com\/vakata\/jstree\" target=\"_blank\">jstree<\/a>，using <a href=\"https:\/\/github.com\/twbs\/bootstrap\" target=\"_blank\">Bootstrap<\/a> 3 default style。"
+	    "feature"     : [{                                  //feature list, escaping html tags is advised
+	      "point"     : "function base on <a href=\"https:\/\/github.com\/vakata\/jstree\" target=\"_blank\">jstree<\/a>."
 	    }]
 	  },
 	  "state"         : {                                   //initial select, first project only
