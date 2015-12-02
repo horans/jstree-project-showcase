@@ -55,18 +55,18 @@ $(function() {
 
 	//random help
 	var hText = [
-		'点击页面，右侧切换显示',
-		'悬停页面，显示对应二维码',
-		'点击侧栏右边框，收起或展开侧栏',
-		'输入查找内容，即时高亮显示',
-		'点击搜索框，清除查找内容',
-		'点击 <i class="page-folder-open"></i>，收起文件夹全部页面',
-		'点击 <i class="page-folder-close"></i>，展开文件夹全部页面',
-		'点击 <i class="glyphicon glyphicon-file"></i> 图标，新窗口打开页面',
-		'点击 <i class="glyphicon glyphicon-search"></i> 按钮，过滤查找内容',
-		'点击 <i class="glyphicon glyphicon-zoom-in"></i> 按钮，展开全部页面',
-		'点击 <i class="glyphicon glyphicon-zoom-out"></i> 按钮，收起全部页面',
-		'点击 <i class="glyphicon glyphicon-question-sign"></i> 按钮，随机显示帮助'
+		'Click node, show link page on right',
+		'Hover on node, show link qrcode',
+		'Click right to sidebar, shrink or expand it',
+		'Highlighted result show with input',
+		'Click keyword to reset search',
+		'Click <i class="page-folder-open"></i> to close all sub nodes',
+		'Click <i class="page-folder-close"></i> to open all sub nodes',
+		'Click <i class="glyphicon glyphicon-file"></i> to open page in new window',
+		'Click <i class="glyphicon glyphicon-search"></i> to filter result',
+		'Click <i class="glyphicon glyphicon-zoom-in"></i> to open all nodes',
+		'Click <i class="glyphicon glyphicon-zoom-out"></i> to close all nodes',
+		'Click <i class="glyphicon glyphicon-question-sign"></i> to show random tip'
 	];
 	var hOld = 0;
 	var showHelp = function(){
