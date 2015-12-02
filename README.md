@@ -2,7 +2,7 @@
 a web project showcase base on jstree
 
 #### how to use
-we will looking for the json in url query string (ie. "project=sample.json"), or loading the default "project.json" in the same directory.
+we will looking for the json in url query string (ie. `project=sample.json`), or loading the default `project.json` in the same directory.
 
 #### json sample
 
@@ -38,3 +38,11 @@ we will looking for the json in url query string (ie. "project=sample.json"), or
 	    "href"        : "intro.html"                        //page address, "intro.html" for project, "#" for folder
 	  }
 	}]
+
+#### feature
+* functions base on [jQuery](https://github.com/jquery/jquery) + [jsTree](https://github.com/vakata/jstree), styled with [Bootstrap](https://github.com/twbs/bootstrap) 3 default setting.
+* use json to store data, nodes(project/folder/page) can be leveled and searched.
+* preview page in iframe and display project information.
+* sidebar can be shrinked or expanded to view responsive page. (self screen breakpoint is 1024px.)
+* use [jquery.qrcode](https://github.com/jeromeetienne/jquery-qrcode) to display links qrcode.
+* use [url()](https://github.com/websanova/js-url) to get url query strings and update them with the HTML5 API [History.pushState()](https://developer.mozilla.org/docs/Web/API/History/pushState).
