@@ -1,33 +1,19 @@
 [{
-  "site"          : "项目预览 | Showcase",
+  "site"          : "Project Showcase",
   "data"          : {
-    "title"       : "项目预览",
+    "title"       : "sample",
     "author"      : "horan",
     "date"        : "15.11",
-    "description" : "侧栏显示项目与页面列表，方便预览。",
+    "description" : "blah blah blah blah",
     "tag"         : [{
       "term"      : "HTML5"
-	},{
+    },{
       "term"      : "CSS3"
-	},{
+    },{
       "term"      : "JavaScript"
-	},{
-      "term"      : "jQuery"
-	},{
-      "term"      : "Bootstrap"
     }],
     "feature"     : [{
-      "point"     : "功能基于 <a href=\"https:\/\/github.com\/jquery\/jquery\" target=\"_blank\">jQuery<\/a> + <a href=\"https:\/\/github.com\/vakata\/jstree\" target=\"_blank\">jstree<\/a>，页面样式采用 <a href=\"https:\/\/github.com\/twbs\/bootstrap\" target=\"_blank\">Bootstrap<\/a> 3 默认。"
-    },{
-      "point"     : "列表数据采用 json，可层叠、查询。"
-    },{
-      "point"     : "除页面预览的功能外，还能查看项目信息页。"
-    },{
-      "point"     : "侧栏宽度可调整，以查看响应式页面。自身屏幕断点为1024px。"
-    },{
-      "point"     : "使用 <a href=\"https:\/\/github.com\/jeromeetienne\/jquery-qrcode\" target=\"_blank\">jquery.qrcode<\/a> 显示页面二维码。"
-    },{
-      "point"     : "利用 <a href=\"https:\/\/github.com\/websanova\/js-url\" target=\"_blank\">url()<\/a> 判断页面参数，并采用 HTML5 的 <a href=\"https:\/\/developer.mozilla.org\/docs\/Web\/API\/History\/pushState\" target=\"_blank\">History.pushState()<\/a> 接口进行非跳转修改。"
+      "point"     : "function base on <a href=\"https:\/\/github.com\/vakata\/jstree\" target=\"_blank\">jstree<\/a>."
     }]
   },
   "state"         : {
@@ -35,7 +21,7 @@
   },
   "id"            : "pjsc-project",
   "parent"        : "#",
-  "text"          : "[1511] 项目预览",
+  "text"          : "[1511] jstree project showcase",
   "type"          : "project",
   "li_attr"       : {},
   "a_attr"        : {

@@ -9,7 +9,7 @@ we will looking for the json in url query string (ie. "project=sample.json"), or
 	[{
 	  "site"          : "Project Showcase",                 //title of the site, first project only
 	  "data"          : {                                   //project data
-	    "title"       : "sample"	                        //title
+	    "title"       : "sample",	                        //title
 	    "author"      : "horan",                            //author
 	    "date"        : "15.11",                            //release date
 	    "description" : "blah blah blah blah",              //description
@@ -27,9 +27,9 @@ we will looking for the json in url query string (ie. "project=sample.json"), or
 	  "state"         : {                                   //initial select, first project only
 	    "selected"    : true
 	  },
-	  "id"            : "pjsc-project",                     //node id, must be unique
+	  "id"            : "jtsc-project",                     //node id, must be unique
 	  "parent"        : "#",                                //parent id, "#" as root
-	  "text"          : "[1511] jstree project showcase",   //node title
+	  "text"          : "[1511] jstree showcase",           //node title
 	  "type"          : "project",                          //node type, "project/folder/page"
 	  "li_attr"       : {},                                 //extra attribute of the node, affect selft and all sub nodes
 	  "a_attr"        : {                                   //extra attribute of the node, affect self only
