@@ -1,13 +1,13 @@
 # jstree-project-showcase
 a web project showcase base on jstree
 
-[how to use]
+#### how to use
 we will looking for the json in url query string (ie. "project=sample.json"), or loading the default "project.json" in the same directory.
 
-[json sample]
+#### json sample
 
 	[{
-	  "site"          : "Project Showcase", 	                   //title of the site, first project only
+	  "site"          : "Project Showcase", 	                  //title of the site, first project only
 	  "data"          : {                                             //project data
 	    "title"       : "sample"	                                  //title
 	    "author"      : "horan",                                      //author
