@@ -21,12 +21,45 @@
   },
   "id"            : "pjsc-project",
   "parent"        : "#",
-  "text"          : "[1511] jstree project showcase",
+  "text"          : "jstree showcase",
   "type"          : "project",
   "li_attr"       : {},
   "a_attr"        : {
     "class"       : "page-primary",
-    "target"      : "show",
+    "target"      : "iframe",
+    "href"        : "#"
+  }
+},{
+  "id"            : "fold-project",
+  "parent"        : "pjsc-project",
+  "text"          : "sample folder",
+  "type"          : "folder",
+  "li_attr"       : {},
+  "a_attr"        : {
+    "class"       : "page-folder",
+    "target"      : "iframe",
+    "href"        : "#"
+  }
+},{
+  "id"            : "page-project",
+  "parent"        : "fold-project",
+  "text"          : "sample page",
+  "type"          : "page",
+  "li_attr"       : {},
+  "a_attr"        : {
+    "class"       : "page-page",
+    "target"      : "iframe",
     "href"        : "intro.html"
+  }
+},{
+  "id"            : "link-project",
+  "parent"        : "fold-project",
+  "text"          : "sample link",
+  "type"          : "link",
+  "li_attr"       : {},
+  "a_attr"        : {
+    "class"       : "page-link",
+    "target"      : "new",
+    "href"        : "https://github.com/horans/jstree-showcase"
   }
 }]

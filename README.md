@@ -2,7 +2,9 @@
 a web project showcase base on [jsTree](https://github.com/vakata/jstree)
 
 #### how to use
-we will looking for the json in url query string (ie. `project=sample.json`), or loading the default `project.json` in the same directory.
+1. we will looking for the json in url query string (ie. `project=sample.json`), or loading the default `project.json` in the same directory.
+2. we will looking for the language config in url query string (ie. `lang=zh-CN`), or present the page in default english (`en-US`).
+3. you can also change settings in `config.js`, but url query string will override them.
 
 #### feature
 * functions base on [jQuery](https://github.com/jquery/jquery) + [jsTree](https://github.com/vakata/jstree), styled with [Bootstrap](https://github.com/twbs/bootstrap) 3 default setting.
@@ -11,7 +13,7 @@ we will looking for the json in url query string (ie. `project=sample.json`), or
 * sidebar can be shrinked or expanded to view responsive page. (self screen breakpoint is 1024px.)
 * use [jquery.qrcode](https://github.com/jeromeetienne/jquery-qrcode) to display links qrcode.
 * use [url()](https://github.com/websanova/js-url) to get url query strings and update them with the HTML5 API [History.pushState()](https://developer.mozilla.org/docs/Web/API/History/pushState).
-* switch language setting(english/defualt, chinese) in `function.js`.
+* language switch supported. (english/defualt, chinese)
 
 #### json sample
 
@@ -39,11 +41,11 @@ we will looking for the json in url query string (ie. `project=sample.json`), or
 	  "id"            : "jtsc-project",            //node id, must be unique
 	  "parent"        : "#",                       //parent id, "#" as root
 	  "text"          : "[1511] jstree showcase",  //node title
-	  "type"          : "project",                 //node type, "project/folder/page"
+	  "type"          : "project",                 //node type, "project/folder/page/link"
 	  "li_attr"       : {},                        //extra attribute of the node, affect selft and all sub nodes
 	  "a_attr"        : {                          //extra attribute of the node, affect self only
-	    "class"       : "page-primary",            //node color, "page-project/page-folder/page-primary", not required
-	    "target"      : "show",                    //iframe id, required, should not be changed
-	    "href"        : "intro.html"               //page address, "intro.html" for project, "#" for folder
+	    "class"       : "page-primary",            //node color, "page-project/page-folder/page-link/page-page/page-primary"
+	    "target"      : "iframe",                  //preview page/link in iframe or new window, "iframe/new"
+	    "href"        : "#"                        //page address, "#" for project/folder
 	  }
 	}]

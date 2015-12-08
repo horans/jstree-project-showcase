@@ -8,9 +8,7 @@
 备用色
 #0C4842 | 御納戸　 | ONANDO
 #005CAF | 瑠璃　　 | RURI
-#A5DEE4 | 瓶覗　　 | KAMENOZOKI
-#0B346E | 瑠璃紺　 | RURIKON
-#51A8DD | 群青　　 | GUNJYO */
+#A5DEE4 | 瓶覗　　 | KAMENOZOKI */
 
 body {
 	font-family:"Source Han Sans", "Microsoft Yahei", Simhei;
@@ -163,6 +161,7 @@ body {
 .page-update{
 	font-size:14px;
 	margin-top:10px;
+	line-height:20px;
 	height:50px;
 	padding-bottom:10px;
 }
@@ -212,6 +211,10 @@ button:focus {
 	color:#777 !important;
 }
 
+.page-link {
+	color:#51A8DD !important;					/* 群青　　 | GUNJYO */
+}
+
 .page-empty {
 	color:orange !important;
 }
@@ -220,7 +223,7 @@ button:focus {
 	color:green !important;
 }
 
-.page-new {
+.page-page {
 	color:#333 !important;
 }
 
@@ -239,8 +242,18 @@ button:focus {
 
 .page-update .item {
 	display:inline-block;
-	width:33%;
+	float:left;
+	width:50%;
 	text-align:center;
+}
+
+@media(min-width:1600px) {
+	.page-update{
+		line-height:40px;
+	}
+	.page-update .item {
+		width:25%;
+	}
 }
 
 .page-update span {

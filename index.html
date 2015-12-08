@@ -23,15 +23,13 @@
         <div class="page-desc"></div>
         <div class="page-tool">
             <div class="input-group">
-              <!--<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>-->
               <input type="text" class="form-control page-input" placeholder="Search…">
               <span class="input-group-btn">
                 <button class="btn btn-default page-filter" type="button" title="Filter"><i class="glyphicon glyphicon-search"></i></button>
-                <!--<button class="btn btn-default page-reset" type="button"><i class="glyphicon glyphicon-erase"></i></button>-->
                 <button class="btn btn-default page-zoom" type="button" title="Zoom"><i class="glyphicon glyphicon-zoom-in"></i></button>
                 <button class="btn btn-default page-help" type="button" title="Tips"><i class="glyphicon glyphicon-question-sign"></i></button>
               </span>
-            </div><!-- /input-group -->        	
+            </div>
         </div>
         <div class="page-list">
 	        <div class="page-tree"></div>
@@ -48,7 +46,12 @@
                 <span class="transition transparent"></span>
             </div>
         	<div class="item">
-	            <i class="glyphicon glyphicon-file page-new"></i> 
+	            <i class="glyphicon glyphicon-link page-link"></i> 
+                <span>Link</span> 
+                <span class="transition transparent"></span>
+            </div>
+        	<div class="item">
+	            <i class="glyphicon glyphicon-file page-page"></i> 
                 <span>Page</span> 
                 <span class="transition transparent"></span>
             </div>
@@ -66,6 +69,7 @@
 <script src="included/js/bootstrap.min.js"></script>
 <script src="included/js/jstree.min.js"></script>
 <script src="included/js/jquery.qrcode.min.js"></script>
+<script src="config.js"></script>
 <script src="function.js"></script>
 </body>
 </html>

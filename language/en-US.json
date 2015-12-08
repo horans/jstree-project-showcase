@@ -9,6 +9,7 @@
 	"update" : {
 		"proj" : "Project",
 		"fold" : "Folder",
+		"link" : "Link",
 		"page" : "Page"
 	},
 	"help"   : [{
@@ -35,5 +36,10 @@
 		"tips" : "Click <i class=\"glyphicon glyphicon-zoom-out\"><\/i> to close all nodes"
 	},{
 		"tips" : "Click <i class=\"glyphicon glyphicon-question-sign\"><\/i> to show random tips"
-	}]
+	}],
+	"intro"  : {
+		"desc" : "Introduction",
+		"feat" : "Feature",
+		"link" : "Preview is forbidden according to website setting. Please click the link below to visit directly."
+	}
 }

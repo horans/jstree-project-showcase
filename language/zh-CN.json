@@ -9,6 +9,7 @@
 	"update" : {
 		"proj" : "项目",
 		"fold" : "文件夹",
+		"link" : "链接",
 		"page" : "页面"
 	},
 	"help"   : [{
@@ -35,5 +36,10 @@
 		"tips" : "点击 <i class=\"glyphicon glyphicon-zoom-out\"><\/i> 按钮，收起全部页面"
 	},{
 		"tips" : "点击 <i class=\"glyphicon glyphicon-question-sign\"><\/i> 按钮，随机显示帮助"
-	}]
+	}],
+	"intro"  : {
+		"desc" : "简介",
+		"feat" : "特色",
+		"link" : "因为网站设置无法预览，请直接点击以下链接查看。"
+	}
 }
