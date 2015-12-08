@@ -162,7 +162,6 @@ body {
 
 .page-update{
 	font-size:14px;
-	text-align:center;
 	margin-top:10px;
 	height:50px;
 	padding-bottom:10px;
@@ -238,10 +237,13 @@ button:focus {
 	color:#0B346E !important;					/* 瑠璃紺　| RURIKON */
 }
 
-.page-update span {
+.page-update .item {
 	display:inline-block;
-	width:30px;
-	margin-right:10px;
+	width:33%;
+	text-align:center;
+}
+
+.page-update span {
 }
 
 .page-folder-open {

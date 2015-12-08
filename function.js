@@ -1,6 +1,16 @@
 // JavaScript Document
 $(function() {
 	'use strict';
+
+	//set language
+	var lang = 'zh-CN';		//zh-CN, en-US
+	switch(lang){
+		case 'zh-CN': break;
+		case 'en-US': break;
+		default: lang = 'en-US';
+	}
+
+	//set project
 	var pData = 'project.json';
 	if($.url('?project')){
 		pData = $.url('?project');
@@ -53,51 +63,67 @@ $(function() {
 		}
 	});
 
-	//random help
-	var hText = [
-		'Click node, show link page on right',
-		'Hover on node, show link qrcode',
-		'Click right to sidebar, shrink or expand it',
-		'Highlighted result show with input',
-		'Click keyword to reset search',
-		'Click <i class="page-folder-open"></i> to close all sub nodes',
-		'Click <i class="page-folder-close"></i> to open all sub nodes',
-		'Click <i class="glyphicon glyphicon-file"></i> to open page in new window',
-		'Click <i class="glyphicon glyphicon-search"></i> to filter result',
-		'Click <i class="glyphicon glyphicon-zoom-in"></i> to open all nodes',
-		'Click <i class="glyphicon glyphicon-zoom-out"></i> to close all nodes',
-		'Click <i class="glyphicon glyphicon-question-sign"></i> to show random tip'
-	];
+	//translation
+	var help;
+	var hasLang = false;
+	$.getJSON('language/' + lang + '.json', function(data){
+		if(lang !== 'en-US'){
+			document.title = data.title;
+			$('.page-input',  '.page-tool').attr('placeholder', data.tool.srch);
+			$('.page-filter', '.page-tool').attr('title', data.tool.filt);
+			$('.page-zoom',   '.page-tool').attr('title', data.tool.zoom);
+			$('.page-help',   '.page-tool').attr('title', data.tool.help);
+			$('.page-project + span', '.page-update').text(data.update.proj);
+			$('.page-folder + span',  '.page-update').text(data.update.fold);
+			$('.page-new + span',    '.page-update').text(data.update.page);
+		}
+
+		help = data.help;
+		hasLang = true;
+	});
+	
+	var tryLang = setInterval(function(){
+		if(hasLang){
+			clearInterval(tryLang);
+			showHelp();
+		}
+	}, 300);
+
 	var hOld = 0;
 	var showHelp = function(){
-		var hIndex = Math.floor(Math.random() * hText.length);
+		var hIndex = Math.floor(Math.random() * help.length);
 		while (hOld === hIndex){
-			hIndex = Math.floor(Math.random() * hText.length);
+			hIndex = Math.floor(Math.random() * help.length);
 		}
 		hOld = hIndex;
-		$('.page-desc').hide().html(hText[hIndex]).fadeIn();
+		$('.page-desc').hide().html(help[hIndex].tips).fadeIn();
 	};
-	showHelp();
 	$('.page-help').click(function(){
-		showHelp();
+		if(hasLang){
+			showHelp();
+		}
 	});
 
 	//show info
 	setTimeout(function(){
 		$.getJSON(pData, function(data){
 			//count page
-			var page = 0;
-			var project = 0;
+			var nProj = 0;
+			var nFold = 0;
+			var nPage = 0;
 			for(var i = 0; i < data.length; i++){
-				if(data[i].type === 'page'){
-					page++;
-				} else if(data[i].type === 'project'){
-					project++;
+				if(data[i].type === 'project'){
+					nProj++;
+				} else if(data[i].type === 'folder'){
+					nFold++;
+				} else if(data[i].type === 'page'){
+					nPage++;
 				}
 			}
 			$('.page-title').text(data[0].site).removeClass('transparent');
-			$('.page-update span').eq(0).text(project).removeClass('transparent');
-			$('.page-update span').eq(1).text(page).removeClass('transparent');
+			$('.page-project + span + span').text(nProj).removeClass('transparent');
+			$('.page-folder + span + span').text(nFold).removeClass('transparent');
+			$('.page-new + span + span').text(nPage).removeClass('transparent');
 		});
 	}, 400);
 
@@ -107,10 +133,15 @@ $(function() {
 	//change iframe
 	.on('select_node.jstree', function (e, data) {
 		var iLink = data.node.a_attr.href;
+		var iTarget = data.node.a_attr.target;
 		if(iLink !== '#'){
-			$('#show').attr('src', iLink);
-			if(bWidth < 1024){
-				$('.container').toggleClass('open');
+			if(iTarget === 'show'){
+				$('#show').attr('src', iLink);
+				if(bWidth < 1024){
+					$('.container').toggleClass('open');
+				}
+			} else if(iTarget === 'blank'){
+				window.open(iLink);
 			}
 		}
 		//toggle folder

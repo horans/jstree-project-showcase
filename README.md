@@ -11,6 +11,7 @@ we will looking for the json in url query string (ie. `project=sample.json`), or
 * sidebar can be shrinked or expanded to view responsive page. (self screen breakpoint is 1024px.)
 * use [jquery.qrcode](https://github.com/jeromeetienne/jquery-qrcode) to display links qrcode.
 * use [url()](https://github.com/websanova/js-url) to get url query strings and update them with the HTML5 API [History.pushState()](https://developer.mozilla.org/docs/Web/API/History/pushState).
+* switch language setting(english/defualt, chinese) in `function.js`.
 
 #### json sample
 

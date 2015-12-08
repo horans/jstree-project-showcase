@@ -1,0 +1,39 @@
+{
+	"title"  : "Showcase",
+	"tool"   : {
+		"srch" : "Search&#8230;",
+		"filt" : "Filter",
+		"zoom" : "Zoom",
+		"help" : "Tips"
+	},
+	"update" : {
+		"proj" : "Project",
+		"fold" : "Folder",
+		"page" : "Page"
+	},
+	"help"   : [{
+		"tips" : "Click node, show link page on right"
+	},{
+		"tips" : "Hover on node, show link qrcode"
+	},{
+		"tips" : "Click right to sidebar, shrink or expand it"
+	},{
+		"tips" : "Highlighted result show with input"
+	},{
+		"tips" : "Click keyword to reset search"
+	},{
+		"tips" : "Click <i class=\"page-folder-open\"><\/i> to close all sub nodes"
+	},{
+		"tips" : "Click <i class=\"page-folder-close\"><\/i> to open all sub nodes"
+	},{
+		"tips" : "Click <i class=\"glyphicon glyphicon-file\"><\/i> to open page in new window"
+	},{
+		"tips" : "Click <i class=\"glyphicon glyphicon-search\"><\/i> to filter result"
+	},{
+		"tips" : "Click <i class=\"glyphicon glyphicon-zoom-in\"><\/i> to open all nodes"
+	},{
+		"tips" : "Click <i class=\"glyphicon glyphicon-zoom-out\"><\/i> to close all nodes"
+	},{
+		"tips" : "Click <i class=\"glyphicon glyphicon-question-sign\"><\/i> to show random tips"
+	}]
+}

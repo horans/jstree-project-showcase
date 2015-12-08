@@ -1,0 +1,39 @@
+{
+	"title"  : "预览",
+	"tool"   : {
+		"srch" : "查找…",
+		"filt" : "过滤",
+		"zoom" : "缩放",
+		"help" : "帮助"
+	},
+	"update" : {
+		"proj" : "项目",
+		"fold" : "文件夹",
+		"page" : "页面"
+	},
+	"help"   : [{
+		"tips" : "点击页面，右侧切换显示"
+	},{
+		"tips" : "悬停页面，显示对应二维码"
+	},{
+		"tips" : "点击侧栏右边框，收起或展开侧栏"
+	},{
+		"tips" : "输入查找内容，即时高亮显示"
+	},{
+		"tips" : "点击搜索框，清除查找内容"
+	},{
+		"tips" : "点击 <i class=\"page-folder-open\"><\/i>，收起文件夹全部页面"
+	},{
+		"tips" : "点击 <i class=\"page-folder-close\"><\/i>，展开文件夹全部页面"
+	},{
+		"tips" : "点击 <i class=\"glyphicon glyphicon-file\"><\/i> 图标，新窗口打开页面"
+	},{
+		"tips" : "点击 <i class=\"glyphicon glyphicon-search\"><\/i> 按钮，过滤查找内容"
+	},{
+		"tips" : "点击 <i class=\"glyphicon glyphicon-zoom-in\"><\/i> 按钮，展开全部页面"
+	},{
+		"tips" : "点击 <i class=\"glyphicon glyphicon-zoom-out\"><\/i> 按钮，收起全部页面"
+	},{
+		"tips" : "点击 <i class=\"glyphicon glyphicon-question-sign\"><\/i> 按钮，随机显示帮助"
+	}]
+}
