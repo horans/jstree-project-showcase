@@ -205,7 +205,7 @@ $(function() {
 	})
 	//show qrcode
 	.on('hover_node.jstree', function (e, data){
-		if(bWidth > 1023 && data.node.type === 'page'){
+		if(bWidth > 1023 && (data.node.type === 'page' || data.node.type === 'link')){
 			aHover = setTimeout(function(){
 				if(data.node.a_attr.href !== '#'){
 					var aElement = $('#' + data.node.id + '_anchor');
