@@ -2,6 +2,7 @@
 $(function() {
 	'use strict';
 
+	/********** config **********/
 	//set language
 	if($.url('?lang')){
 		lang = $.url('?lang');
@@ -143,6 +144,12 @@ $(function() {
 	/********** tree **********/
 	//build tree
 	$('.page-tree')
+	//open selected node
+	.on('loaded.jstree', function(){
+		if($.url('?node')){
+			$(this).jstree('select_node', $.url('?node'));
+		}
+	})
 	//select node
 	.on('select_node.jstree', function (e, data) {
 		var iLink = data.node.a_attr.href;
@@ -202,6 +209,8 @@ $(function() {
 				clearInterval(chkPage);
 			};
 		}
+		//change url query
+		urlChng('node', data.node.id);
 	})
 	//show qrcode
 	.on('hover_node.jstree', function (e, data){

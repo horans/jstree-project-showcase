@@ -5,6 +5,7 @@ a web project showcase base on [jsTree](https://github.com/vakata/jstree)
 1. we will looking for the json in url query string (ie. `project=sample.json`), or loading the default `project.json` in the same directory.
 2. we will looking for the language config in url query string (ie. `lang=zh-CN`), or present the page in default english (`en-US`).
 3. you can also change settings in `config.js`, but url query string will override them.
+4. indicate a node id in url query to open. (ie. `node=pjsc-project`)
 
 #### feature
 * functions base on [jQuery](https://github.com/jquery/jquery) + [jsTree](https://github.com/vakata/jstree), styled with [Bootstrap](https://github.com/twbs/bootstrap) 3 default setting.
@@ -14,6 +15,7 @@ a web project showcase base on [jsTree](https://github.com/vakata/jstree)
 * use [jquery.qrcode](https://github.com/jeromeetienne/jquery-qrcode) to display links qrcode.
 * use [url()](https://github.com/websanova/js-url) to get url query strings and update them with the HTML5 API [History.pushState()](https://developer.mozilla.org/docs/Web/API/History/pushState).
 * language switch supported. (english/defualt, chinese)
+* landing to specific node, or return to your last state.
 
 #### json sample
 
