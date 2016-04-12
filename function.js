@@ -145,7 +145,7 @@ $(function() {
 	//build tree
 	$('.page-tree')
 	//open selected node
-	.on('loaded.jstree', function(){
+	.on('init.jstree', function(){
 		if($.url('?node')){
 			$(this).jstree('select_node', $.url('?node'));
 		}
