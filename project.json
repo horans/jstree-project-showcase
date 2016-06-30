@@ -1,9 +1,9 @@
 [{
   "site"          : "Project Showcase",
   "data"          : {
-    "title"       : "sample",
+    "title"       : "sample project",
     "author"      : "horan",
-    "date"        : "15.11",
+    "date"        : "16.06",
     "description" : "blah blah blah blah",
     "tag"         : [{
       "term"      : "HTML5"

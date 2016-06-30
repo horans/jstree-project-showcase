@@ -10,7 +10,15 @@
 <link rel="stylesheet" href="included/css/bootstrap.min.css">
 <link rel="stylesheet" href="included/css/jstree.style.min.css">
 <link rel="stylesheet" href="style.css">
-<title>Showcase</title>
+<script src="included/js/jquery.min.js"></script>
+<script src="included/js/vue.min.js"></script>
+<script src="included/js/url.min.js"></script>
+<script src="included/js/bootstrap.min.js"></script>
+<script src="included/js/jstree.min.js"></script>
+<script src="included/js/jquery.qrcode.min.js"></script>
+<script src="config.js"></script>
+<script src="function.js"></script>
+<title>{{ lang.title }}</title>
 <style>
 </style>
 </head>
@@ -19,41 +27,41 @@
 <div class="title"></div>
 <div class="container">
 	<div class="sidebar">
-        <div class="page-title transition transparent"></div>
-        <div class="page-desc"></div>
+        <div class="page-title transition transparent">{{ node[0].site }}</div>
+        <div class="page-desc transition transparent">{{{ tips }}}</div>
         <div class="page-tool">
             <div class="input-group">
-              <input type="text" class="form-control page-input" placeholder="Search…">
+              <input type="text" class="form-control page-input" :placeholder="lang.tool.srch">
               <span class="input-group-btn">
-                <button class="btn btn-default page-filter" type="button" title="Filter"><i class="glyphicon glyphicon-search"></i></button>
-                <button class="btn btn-default page-zoom" type="button" title="Zoom"><i class="glyphicon glyphicon-zoom-in"></i></button>
-                <button class="btn btn-default page-help" type="button" title="Tips"><i class="glyphicon glyphicon-question-sign"></i></button>
+                <button class="btn btn-default page-filter" type="button" :title="lang.tool.filt"><i class="glyphicon glyphicon-search"></i></button>
+                <button class="btn btn-default page-zoom" type="button" :title="lang.tool.zoom"><i class="glyphicon glyphicon-zoom-in"></i></button>
+                <button class="btn btn-default page-help" type="button" :title="lang.tool.help" @click="showHelp()"><i class="glyphicon glyphicon-question-sign"></i></button>
               </span>
             </div>
         </div>
         <div class="page-list">
 	        <div class="page-tree"></div>
         </div>
-        <div class="page-update">
+        <div class="page-update transition transparent">
         	<div class="item">
 	        	<i class="glyphicon glyphicon-pushpin page-project"></i> 
-                <span>Project</span> 
-                <span class="transition transparent"></span>
+                <span>{{ lang.update.proj }}</span> 
+                <span>{{ count.project }}</span>
             </div>
         	<div class="item">
 	            <i class="glyphicon glyphicon-folder-open page-folder"></i> 
-                <span>Folder</span> 
-                <span class="transition transparent"></span>
+                <span>{{ lang.update.fold }}</span> 
+                <span>{{ count.folder }}</span>
             </div>
         	<div class="item">
 	            <i class="glyphicon glyphicon-link page-link"></i> 
-                <span>Link</span> 
-                <span class="transition transparent"></span>
+                <span>{{ lang.update.link }}</span> 
+                <span>{{ count.link }}</span>
             </div>
         	<div class="item">
 	            <i class="glyphicon glyphicon-file page-page"></i> 
-                <span>Page</span> 
-                <span class="transition transparent"></span>
+                <span>{{ lang.update.page }}</span> 
+                <span>{{ count.page }}</span>
             </div>
         </div>
     </div>
@@ -64,12 +72,5 @@
     </div>
 </div>
 <div class="page-qrcode"></div>
-<script src="included/js/jquery.min.js"></script>
-<script src="included/js/url.min.js"></script>
-<script src="included/js/bootstrap.min.js"></script>
-<script src="included/js/jstree.min.js"></script>
-<script src="included/js/jquery.qrcode.min.js"></script>
-<script src="config.js"></script>
-<script src="function.js"></script>
 </body>
 </html>
