@@ -4,21 +4,16 @@ $(function() {
 
 	/********** config **********/
 	//set language
-	if($.url('?lang')){
-		lang = $.url('?lang');
-	}
-	switch(lang){
-		case 'zh-CN': break;
-		case 'en-US': break;
-		default: lang = 'en-US';	//default language
+	switch($.url('?lang')){
+		case 'zh-CN':
+		case 'en-US':
+			lang = $.url('?lang');
+			break;
 	}
 
 	//set project
-	if($.url('?project')){
+	if(/.json$/.test($.url('?project'))){
 		pData = $.url('?project');
-	}
-	if(!/.json$/.test(pData)){
-		pData = 'project.json';		//default project
 	}
 
 	/********** sidebar **********/

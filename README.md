@@ -8,9 +8,10 @@ a web project showcase base on [jsTree](https://github.com/vakata/jstree)
 4. indicate a node id in url query to open. (ie. `node=pjsc-project`)
 
 #### feature
-* functions base on [jQuery](https://github.com/jquery/jquery) + [jsTree](https://github.com/vakata/jstree), styled with [Bootstrap](https://github.com/twbs/bootstrap) 3 default setting.
-* use json to store data, nodes(project/folder/page) can be leveled and searched.
+* functions base on [jQuery](https://github.com/jquery/jquery) + [jsTree](https://github.com/vakata/jstree) + [Vue.js](https://github.com/vuejs/vue), styled with [Bootstrap](https://github.com/twbs/bootstrap) 3 default setting.
+* use json to store data, nodes(project/folder/page/link) can be leveled and searched.
 * preview page in iframe and display project information.
+* preview link in iframe if target website allows.
 * sidebar can be shrinked or expanded to view responsive page. (self screen breakpoint is 1024px.)
 * use [jquery.qrcode](https://github.com/jeromeetienne/jquery-qrcode) to display links qrcode.
 * use [url()](https://github.com/websanova/js-url) to get url query strings and update them with the HTML5 API [History.pushState()](https://developer.mozilla.org/docs/Web/API/History/pushState).
